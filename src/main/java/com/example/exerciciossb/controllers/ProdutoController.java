@@ -46,10 +46,10 @@ public class ProdutoController {
         return produtoRepository.findById(id);
     }
 
-    @PutMapping
-    public Produto alterarProduto(@Valid Produto produto){
-        produtoRepository.save(produto);
-        return produto;
-    }
+    // @PutMapping
+    // public Produto alterarProduto(@Valid Produto produto){
+    //     produtoRepository.save(produto);
+    //     return produto;
+    // }
 
 }
