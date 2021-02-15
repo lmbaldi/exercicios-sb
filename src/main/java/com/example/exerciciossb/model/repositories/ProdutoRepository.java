@@ -5,4 +5,7 @@ import com.example.exerciciossb.model.entities.Produto;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 //responsavel pela persistencia de um produto
-public interface ProdutoRepository extends PagingAndSortingRepository<Produto, Integer> {}
+public interface ProdutoRepository extends PagingAndSortingRepository<Produto, Integer> {
+
+    public Iterable<Produto> findByNomeContainingIgnoreCase(String parteNome);
+}
