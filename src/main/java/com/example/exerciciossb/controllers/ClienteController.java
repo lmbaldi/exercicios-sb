@@ -1,6 +1,7 @@
 package com.example.exerciciossb.controllers;
 
-import com.example.exerciciossb.models.Cliente;
+
+import com.example.exerciciossb.model.entities.Cliente;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
