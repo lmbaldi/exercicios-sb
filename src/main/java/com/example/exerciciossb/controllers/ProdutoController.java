@@ -8,6 +8,8 @@ import com.example.exerciciossb.model.entities.Produto;
 import com.example.exerciciossb.model.repositories.ProdutoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,6 +42,13 @@ public class ProdutoController {
     @GetMapping
     public Iterable<Produto> obterProdutos() {
         return produtoRepository.findAll();
+    }
+
+    @GetMapping(path ="/pagina/{numeroPagina}/{qtdePagina}")
+    public Iterable<Produto> obterProdutosPorPagina(@PathVariable int numeroPagina, @PathVariable int qtdePagina){
+        if(qtdePagina >=5) qtdePagina = 5;
+        PageRequest page = PageRequest.of(numeroPagina, qtdePagina);
+        return produtoRepository.findAll(page); 
     }
 
     @GetMapping(path = "/{id}")
